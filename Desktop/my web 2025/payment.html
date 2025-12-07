@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CryptoMinePro – Secure USDT Payment</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    background: #0a0f1c;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+.container {
+    max-width: 520px;
+    margin: 40px auto;
+    padding: 25px;
+    background: #11182b;
+    border-radius: 16px;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.08);
+    border: 1px solid rgba(0, 255, 255, 0.15);
+    animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+    text-align: center;
+    color: #00eaff;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #8ca3c1;
+}
+
+.box {
+    background: #141b2d;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(0,255,255,0.15);
+    word-break: break-all;
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #e0ecff;
+}
+
+button {
+    width: 100%;
+    padding: 13px;
+    background: #00c2ff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #00eaff;
+    box-shadow: 0 0 18px rgba(0,255,255,0.45);
+}
+
+#modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.65);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(4px);
+}
+
+.modal-box {
+    background: #11182b;
+    padding: 30px;
+    border-radius: 16px;
+    width: 85%;
+    max-width: 400px;
+    text-align: center;
+    border: 1px solid rgba(0,255,255,0.2);
+}
+
+.modal-box h3 {
+    color: #00eaff;
+}
+
+.modal-box button {
+    background: #00eaff;
+}
+
+.planBtn {
+    padding: 10px 18px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,255,255,0.25);
+    background: #0f1628;
+    color: #e0ecff;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.planBtn:hover {
+    background: #00eaff;
+    color: #000;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+    <h2>Complete Your Payment</h2>
+
+    <div class="label">Wallet Address (USDT – TRC20)</div>
+    <div class="box" id="walletBox">0xeFfb345c1ACFFb3604B1157A839c6625ed5278B1</div>
+    <button onclick="copyWallet()">Copy Wallet Address</button>
+
+    <div class="label">Amount to Pay</div>
+    <div class="box" id="amountBox">$0 USDT</div>
+    <button onclick="copyAmount()">Copy Amount</button>
+
+    <button onclick="openModal()" style="margin-top:25px;">I Have Paid</button>
+</div>
+
+<!-- POPUP MODAL -->
+<div id="modal">
+    <div class="modal-box">
+        <h3>Payment Submitted</h3>
+        <p>Thank you! Your payment is being verified.  
+        You will receive a confirmation shortly.</p>
+        <button onclick="closeModal()">OK</button>
+    </div>
+</div>
+
+<script>
+const WALLET = "0xeFfb345c1ACFFb3604B1157A839c6625ed5278B1";
+const url = new URL(window.location.href);
+const amount = url.searchParams.get("plan") || "50";
+
+document.getElementById("amountBox").innerText = amount + " USDT";
+document.getElementById("walletBox").innerText = WALLET;
+
+function copyWallet() {
+    navigator.clipboard.writeText(WALLET);
+    alert("Wallet address copied.");
+}
+
+function copyAmount() {
+    let amt = document.getElementById("amountInput").value || "0";
+    navigator.clipboard.writeText(amt + " USDT");
+    alert("Amount copied.");
+}
+
+function openModal() {
+    document.getElementById("modal").style.display = "flex";
+}
+
+function closeModal() {
+    document.getElementById("modal").style.display = "none";
+}
+
+function setAmount(v) {
+    document.getElementById("amountInput").value = v;
+}
+</script>
+
+</body>
+</html>

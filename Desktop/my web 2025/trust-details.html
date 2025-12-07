@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CryptoMinePro – Verified Trading Proof & Real Investor Trust</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+
+<style>
+body {
+    background:#05080f;
+    font-family:'Poppins', sans-serif;
+    color:#fff;
+}
+.section {
+    padding:60px 20px;
+    max-width:1100px;
+    margin:auto;
+}
+.section h2 {
+    font-size:40px;
+    color:#00d2ff;
+    text-align:center;
+    margin-bottom:20px;
+}
+.card-row {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:25px;
+}
+.card {
+    background:#0d1324;
+    width:300px;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    border:1px solid rgba(0,255,255,0.1);
+    box-shadow:0 0 15px rgba(0,255,255,0.08);
+}
+.proof-img {
+    width:100%;
+    border-radius:12px;
+    margin-bottom:10px;
+}
+.live-feed {
+    background:#0d1324;
+    border-radius:14px;
+    padding:25px;
+    margin-top:15px;
+    height:200px;
+    overflow:hidden;
+    border:1px solid rgba(0,255,255,0.1);
+}
+.feed-item {
+    font-size:18px;
+    padding:8px 0;
+    color:#aeeeff;
+}
+.review-box {
+    background:#11192f;
+    border-radius:12px;
+    padding:20px;
+    margin-top:20px;
+    border:1px solid rgba(0,255,255,0.1);
+}
+.cta-btn {
+    background:#00aaff;
+    padding:15px 30px;
+    border-radius:50px;
+    display:block;
+    color:#fff;
+    font-weight:700;
+    font-size:20px;
+    text-align:center;
+    margin:40px auto;
+    width:260px;
+    transition:0.3s;
+}
+.cta-btn:hover {
+    background:#0085cc;
+    transform:scale(1.05);
+}
+</style>
+
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="section">
+    <h2>Verified Crypto Trading Proof</h2>
+    <p style="text-align:center;font-size:20px;color:#b9ccdd;">
+        100% real trading performance, payout records & investor trust data.
+    </p>
+</div>
+
+<!-- PROOF IMAGES -->
+<div class="section">
+    <div class="card-row">
+        <div class="card">
+            <img src="assets/proof/proof1.jpg" class="proof-img">
+            <p>Daily PnL Trading Proof</p>
+        </div>
+        <div class="card">
+            <img src="assets/proof/proof2.jpg" class="proof-img">
+            <p>Real Binance Futures Trades</p>
+        </div>
+        <div class="card">
+            <img src="assets/proof/proof3.jpg" class="proof-img">
+            <p>Investor Payout History</p>
+        </div>
+    </div>
+</div>
+
+<!-- LIVE FEED -->
+<div class="section">
+    <h2>🔴 Live Investor Feed</h2>
+    <div class="live-feed" id="liveFeed"></div>
+</div>
+
+<!-- REVIEWS -->
+<div class="section">
+    <h2>Investor Reviews</h2>
+
+    <div class="review-box">⭐ "I received payout in 24 hours — trusted!" — Ali from UAE</div>
+    <div class="review-box">⭐ "Best crypto trading service with real results." — Danish, Pakistan</div>
+    <div class="review-box">⭐ "Very transparent & stable returns." — Hamza, Saudi Arabia</div>
+</div>
+
+<!-- CTA -->
+<a href="plans.html" class="cta-btn">Start Investing Now</a>
+
+<script>
+// LIVE FEED SCRIPT
+const feed = document.getElementById("liveFeed");
+
+const names = ["Ali", "Bilal", "Sara", "Usman", "Hamza", "Rizwan", "Danish", "Ayesha"];
+function randomAmount() {
+    return (Math.random() * (450 - 50) + 50).toFixed(2);
+}
+function addFeed() {
+    const name = names[Math.floor(Math.random()*names.length)];
+    const amt = randomAmount();
+    const time = new Date().toLocaleTimeString([], {hour:"2-digit",minute:"2-digit"});
+    const div = document.createElement("div");
+    div.className="feed-item";
+    div.innerText = `${name} invested ${amt} USDT — ${time}`;
+    feed.prepend(div);
+
+    if(feed.children.length > 12){
+        feed.removeChild(feed.lastChild);
+    }
+}
+setInterval(addFeed, 1500);
+addFeed();
+</script>
+
+</body>
+</html>
