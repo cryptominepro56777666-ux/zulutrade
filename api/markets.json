@@ -1,0 +1,83 @@
+{
+  "topCurrencies": [
+    {
+      "symbol": "EUR/USD",
+      "price": 1.0856,
+      "change": 0.23
+    },
+    {
+      "symbol": "GBP/USD",
+      "price": 1.2754,
+      "change": -0.12
+    },
+    {
+      "symbol": "USD/JPY",
+      "price": 147.89,
+      "change": 0.45
+    },
+    {
+      "symbol": "AUD/USD",
+      "price": 0.6543,
+      "change": -0.08
+    },
+    {
+      "symbol": "USD/CHF",
+      "price": 0.9123,
+      "change": 0.31
+    }
+  ],
+  "topCrypto": [
+    {
+      "symbol": "BTC/USD",
+      "price": 43250.75,
+      "change": 2.34
+    },
+    {
+      "symbol": "ETH/USD",
+      "price": 2650.2,
+      "change": -1.23
+    },
+    {
+      "symbol": "BNB/USD",
+      "price": 315.67,
+      "change": 0.89
+    },
+    {
+      "symbol": "ADA/USD",
+      "price": 0.4856,
+      "change": -0.45
+    },
+    {
+      "symbol": "SOL/USD",
+      "price": 98.32,
+      "change": 1.67
+    }
+  ],
+  "topIndices": [
+    {
+      "symbol": "SPX",
+      "price": 4567.89,
+      "change": 0.78
+    },
+    {
+      "symbol": "NDX",
+      "price": 15890.12,
+      "change": -0.34
+    },
+    {
+      "symbol": "DJI",
+      "price": 34567.45,
+      "change": 0.56
+    },
+    {
+      "symbol": "FTSE",
+      "price": 7890.23,
+      "change": -0.12
+    },
+    {
+      "symbol": "DAX",
+      "price": 15678.9,
+      "change": 0.89
+    }
+  ]
+}
