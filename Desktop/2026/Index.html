@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ZuluTrade Pro | Institutional Trading Terminal</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body class="terminal-body">
+
+    <!-- OVERLAY: ACCESS GATE -->
+    <div id="gate-screen" class="overlay active">
+        <div class="auth-box">
+            <div class="brand">ZULUTRADE <span>PRO</span></div>
+            <p>Enter encrypted access code to initialize</p>
+            <input type="password" id="access-code" maxlength="4" placeholder="••••">
+            <button onclick="unlockTerminal()" class="btn-glow">UNSEAL TERMINAL</button>
+            <div id="gate-error" class="error-text">Unauthorized Access. Code Invalid.</div>
+        </div>
+    </div>
+
+    <!-- MAIN INTERFACE -->
+    <div id="main-terminal" class="app-layout">
+        
+        <!-- HEADER -->
+        <header class="top-bar">
+            <div class="pair-info">
+                <span class="ticker">BTC/USDT</span>
+                <span id="price-tick" class="price-up">0.00</span>
+            </div>
+            <div class="balance-container">
+                <div class="bal-label">TRADING EQUITY</div>
+                <div id="main-balance" class="bal-amount">$1,000.00</div>
+            </div>
+            <div class="header-actions">
+                <button class="btn-dep" onclick="toggleModal('deposit')">Deposit</button>
+                <button class="btn-wit" onclick="toggleModal('withdraw')">Withdraw</button>
+            </div>
+        </header>
+
+        <div class="content-grid">
+            <!-- CENTER: CHARTING ENGINE -->
+            <section class="chart-area">
+                <div id="live-chart"></div>
+            </section>
+
+            <!-- RIGHT: CONTROL TOWER -->
+            <aside class="control-tower">
+                <div class="control-panel">
+                    <div class="input-block">
+                        <label>INVESTMENT (USDT)</label>
+                        <input type="number" id="trade-amount" value="100" min="10">
+                    </div>
+                    <div class="input-block">
+                        <label>EXPIRATION TIME</label>
+                        <select id="trade-duration">
+                            <option value="30">30 SECONDS</option>
+                            <option value="60">1 MINUTE</option>
+                            <option value="300">5 MINUTES</option>
+                        </select>
+                    </div>
+
+                    <div class="trade-buttons">
+                        <button class="btn-up" onclick="placeTrade('UP')">
+                            <span class="dir">CALL</span>
+                            <span class="profit">+90%</span>
+                        </button>
+                        <button class="btn-down" onclick="placeTrade('DOWN')">
+                            <span class="dir">PUT</span>
+                            <span class="profit">+90%</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="history-panel">
+                    <div class="panel-tab">ACTIVE TRADES</div>
+                    <div id="active-log" class="log-list"></div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- MODAL: DEPOSIT -->
+    <div id="modal-deposit" class="modal-blur">
+        <div class="modal-card">
+            <h3>Institutional Deposit</h3>
+            <p>Send USDT (BEP20/TRC20) to the address below:</p>
+            <div class="wallet-copy">
+                <code id="wallet-addr">0x7592766391918c7d3E7F8Ae72D97e98979F25302</code>
+                <button onclick="copyWallet()">COPY</button>
+            </div>
+            <div class="upload-zone">
+                <label>Upload Transfer Confirmation</label>
+                <input type="file" id="proof-img">
+            </div>
+            <button class="btn-confirm" onclick="confirmDeposit()">Submit Verification</button>
+            <button class="btn-close" onclick="toggleModal('deposit')">Cancel</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
