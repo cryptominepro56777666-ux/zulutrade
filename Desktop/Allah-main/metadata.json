@@ -1,0 +1,8 @@
+{
+  "name": "CopyTrade Professional",
+  "description": "Global Hub for Institutional Market Replication",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
